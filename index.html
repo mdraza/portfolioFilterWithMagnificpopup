@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap 4 Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <section class="event-section bg-grey padding" id="student_works">
+        <div class="container">
+            <div class="section-heading mb-40 text-center">
+                <h2>Student 's Gallery</h2>
+                <p style="margin-bottom:10px">Imagination is the only weapon against reality</p>
+
+                <div class="double-line-bottom-centered-theme-colored-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 wow flipInX" data-wow-duration="2s">
+                    <div class="filter_btn mt-3 text-center" id="workFilter">
+                        <a data-name="*" href="javascript:void()" class="filter-link wrk active_wrk">All</a>
+                        <a data-name=".web" href="javascript:void()" class="wrk">Graphics</a>
+                        <a data-name=".graphic" href="javascript:void()" class="wrk filter-link">3D</a>
+                        <a data-name=".vfx" href="javascript:void()" class="filter-link wrk">VFX</a>
+                        <a data-name=".animation" href="javascript:void()" class="wrk">Web Designing</a>
+
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="stud_work">
+                <div class="row">
+                    <div class="col-md-4 work-item web view-img wow fadeInLeft">
+                        <a class="view" href="image/1.jpg"><img src="image/1.jpg" alt="" class=" img-thumbnail2 mt-4"></a>
+                    </div>
+                    <div class="col-md-4 work-item graphic view-img wow fadeInUp">
+                        <a class="view" href="image/2.jpg"><img src="image/2.jpg" alt="" class=" img-thumbnail2 mt-4"></a>
+                    </div>
+                    <div class="col-md-4 work-item vfx view-img wow fadeInRight">
+                        <a class="view" href="image/3.jpg"><img src="image/3.jpg" alt="" class=" img-thumbnail2 mt-4"></a>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-md-4 work-item animation view-img wow fadeInLeft">
+                        <a class="view" href="image/4.jpg"><img src="image/4.jpg" alt="" class=" img-thumbnail2 mt-4"></a>
+                    </div>
+                    <div class="col-md-4 work-item web view-img wow fadeInUp">
+                        <a class="view" href="image/5.jpg"><img src="image/5.jpg" alt="" class=" img-thumbnail2 mt-4"></a>
+                    </div>
+                    <div class="col-md-4 work-item graphic view-img wow fadeInRight">
+                        <a class="view" href="image/6.jpg"><img src="image/6.jpg" alt="" class=" img-thumbnail2 mt-4"></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section><!-- Student's Work Section -->
+
+
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/isotope.pkgd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script>
+      var $grid = $(".stud_work").isotope({
+        itemSelector: ".work-item",
+        layoutMode: "fitRows"
+    });
+
+    $(".filter_btn a").on("click", function () {
+        var value = $(this).attr("data-name");
+        $grid.isotope({
+            filter: value
+        });
+    });
+
+    $('.view').magnificPopup({
+        type: 'image',
+        gallery: {
+            enabled: true
+        }
+    });
+
+    $('.video-view').magnificPopup({
+        type: 'iframe'
+    });
+
+    /*=======================================================================
+    Active Class
+ ========================================================================*/                
+ var header = document.getElementById("workFilter");
+    var btns = header.getElementsByClassName("wrk");
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener("click", function() {
+      var current = document.getElementsByClassName("active_wrk");
+      current[0].className = current[0].className.replace(" active_wrk", "");
+      this.className += " active_wrk";
+      });
+    }
+  </script>
+</body>
+</html>
